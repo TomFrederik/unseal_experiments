@@ -25,7 +25,7 @@ def main(args):
         args.model_size = 'None' # for path creation/saving
 
     # Trying to load model, tokenizer and config
-    model, tokenizer, config = tutil.load(model_name, args.model_dir)
+    model, tokenizer, config = tutil.load_from_pretrained(model_name, args.model_dir)
     model.to(device)
     model.eval()
     # wrap model for hooking access

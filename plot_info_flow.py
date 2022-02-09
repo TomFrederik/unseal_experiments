@@ -19,7 +19,7 @@ def main(args):
     else:
         args.model_size = 'None'
 
-    _, tokenizer, config = tutil.load(model_name, args.model_dir, load_model=False)
+    _, tokenizer, config = tutil.load_from_pretrained(model_name, args.model_dir, load_model=False)
 
     # get num layers from config
     num_layers = config.num_hidden_layers
