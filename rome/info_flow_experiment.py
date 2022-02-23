@@ -76,7 +76,7 @@ if __name__ == '__main__':
     # Misc
     parser.add_argument('--text_file', default='prompts.json', help='File that contains the data')
     parser.add_argument('--device', default=None)
-    parser.add_argument('--noise', default=0.05)
+    parser.add_argument('--noise', type=float, default=0.05)
 
     args = parser.parse_args()
     
