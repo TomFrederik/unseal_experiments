@@ -50,7 +50,7 @@ def main(args):
         base_text = prompts[i]
         entity = entities[i]
 
-        results = eval_model(model, tokenizer, base_text, entity, num_layers, args.embedding_name, args.mlp_name, args.attn_name, args.trafo_name)
+        results = eval_model(model, tokenizer, base_text, entity, num_layers, args.embedding_name, args.mlp_name, args.attn_name, args.trafo_name, args.noise)
         results['prompt'] = base_text
         results['entity'] = entity
         all_results[i] = results
@@ -76,7 +76,7 @@ if __name__ == '__main__':
     # Misc
     parser.add_argument('--text_file', default='prompts.json', help='File that contains the data')
     parser.add_argument('--device', default=None)
-
+    parser.add_argument('--noise', default=0.05)
 
     args = parser.parse_args()
     

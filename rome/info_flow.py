@@ -12,6 +12,7 @@ def eval_model(
     mlp_name: str = 'mlp',
     attn_name: str = 'attn',
     trafo_name: str = 'h',
+    noise: float = 0.05,
 ):
     device = next(model.parameters()).device
     
@@ -31,7 +32,7 @@ def eval_model(
     model_hooks = [
         hooks.Hook(
             layer_name=f'transformer->{embedding_name}', 
-            func=hooks.rome_hooks.additive_output_noise(indices=f"{entity_indices},:", std=0.1),
+            func=hooks.rome_hooks.additive_output_noise(indices=f"{entity_indices},:", std=noise),
             key='embedding_noise',
         )
     ]
