@@ -31,7 +31,7 @@ def eval_model(
     model_hooks = [
         hooks.Hook(
             layer_name=f'transformer->{embedding_name}', 
-            func=hooks.rome_hooks.additive_noise(indices=f"{entity_indices},:", std=0.1),
+            func=hooks.rome_hooks.additive_output_noise(indices=f"{entity_indices},:", std=0.1),
             key='embedding_noise',
         )
     ]
