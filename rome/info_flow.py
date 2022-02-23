@@ -14,8 +14,6 @@ def eval_model(
     trafo_name: str = 'h',
     noise: float = 0.05,
 ):
-    print(f"{noise = }")
-    print(f"{type(noise) = }")
     device = next(model.parameters()).device
     
     encoded_base_text = tokenizer(base_text, return_tensors='pt').to(device)
